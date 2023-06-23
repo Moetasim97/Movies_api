@@ -25,8 +25,7 @@ export default function Movie ({movie_state}){
                     <div className="mt-2">
                     {movie_state.vote_average}
                     </div>
-
-                    
+                
                 </div>
 
             </div>

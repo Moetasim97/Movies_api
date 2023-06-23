@@ -37,4 +37,4 @@ const remove_movie=()=>{
     return {type:"Remove Movie"}
 }
 
-export {fetching_error,fetching,startFetching,changing_page,set_movie}
+export {fetching_error,fetching,startFetching,changing_page,set_movie,remove_movie}

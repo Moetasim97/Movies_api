@@ -61,6 +61,7 @@ body{
   background-color: white;
   height: fit-content;
   width: 700px;
+  position: relative;
 
 }
 
@@ -69,3 +70,11 @@ body{
   width: 270px;
   height: 402.3px;
 }
+
+.bi.bi-x{
+  position: absolute;
+  top: 84px;
+  right: 263px;
+  background-color: none;
+}
+
