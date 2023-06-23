@@ -1,0 +1,40 @@
+
+
+
+.App {
+  text-align: center;
+  background-color: white;
+
+}
+
+.page_title{
+  font-size: 2rem;
+}
+
+.btn_style{
+
+  background-color: white;
+  border-radius: 5px;
+  height: fit-content;
+  padding: 5px;
+
+}
+
+.movie_thumbnail{
+
+  width:233.703px;
+  height: 348.217px;
+}
+
+.fit_content{
+  width: fit-content;
+  height: fit-content;
+}
+
+.div_dimensions{
+
+  width: 233.7px;
+  height: 109px;
+  overflow: auto;
+  padding: 5px;
+}
