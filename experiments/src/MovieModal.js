@@ -10,8 +10,6 @@ export default function Modal({single_movie}){
     const dispatch=useDispatch()
 
 
-    
-
 
     return (
         <>

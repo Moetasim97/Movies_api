@@ -14,6 +14,9 @@ function App() {
   const first_page=1
   const second_page=2
 
+  const meta_data=[null,null,null,null]
+  
+
 
 
   const single_mov=useSelector((store)=>store.postReducer.movie)
@@ -55,8 +58,26 @@ function App() {
     },[page_no]
   )
 
+// the page number
+    meta_data[0]=page_no
+// the number of movies
+    meta_data[1]=data!=undefined?data.length:null
+
+    const loop_size=data? data.length:0
+
+    var top_rate=0;
 
 
+    
+
+//  the top rated movie 
+    for(var i=0;i<loop_size;i++){
+      if(data[i].vote_average>top_rate){
+        top_rate=data[i].vote_average
+        meta_data[2]=data[i].title
+        meta_data[3]=data[i].vote_average
+      }
+    }
   
 
   return (
@@ -73,7 +94,7 @@ function App() {
             <div className='d-flex'>
                 <div>Current Page:</div>
                 <div className='current_page_no'>
-
+                  {meta_data[0]}
                 </div>
             </div>
             <div className='d-flex'>
@@ -81,7 +102,7 @@ function App() {
                 Number Of Movies:
               </div>
               <div className='movie_no'>
-
+              {meta_data[1]}
               </div>
             </div>
             <div className='d-flex'>
@@ -89,7 +110,7 @@ function App() {
               Top Rated Movie:
               </div>
               <div className='top_rated_movie'>
-
+              {meta_data[2]}
               </div>
             </div>
             <div className='d-flex'>
@@ -97,7 +118,7 @@ function App() {
               Rating:
               </div>
               <div className='imdb_rating'>
-
+              {meta_data[3]}
               </div>
             </div>
           </div>
