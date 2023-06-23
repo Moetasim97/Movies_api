@@ -13,17 +13,14 @@ function App() {
 
   const first_page=1
   const second_page=2
-
+// this array is going to be used to populate the top section
   const meta_data=[null,null,null,null]
   
+  const single_mov=useSelector((store)=>store.movieReducer.movie)
 
+  const data=useSelector((store)=>store.movieReducer.Movies.results)
 
-
-  const single_mov=useSelector((store)=>store.postReducer.movie)
-
-  const data=useSelector((store)=>store.postReducer.Movies.results)
-
-  const page_no=useSelector((store)=>store.postReducer.page_number)
+  const page_no=useSelector((store)=>store.movieReducer.page_number)
 // Here I'm retrieving the data from the store
 
 // I'm going to insert the page_number into the api call and this is going to be my criteria for fetching
@@ -46,7 +43,7 @@ function App() {
     ()=>{
       
       dispatch(startFetching())
-      fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page_no}`,{ 
+      fetch(`aahttps://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page_no}`,{ 
         method: 'GET',
         headers: {
           accept: 'application/json',
@@ -54,7 +51,7 @@ function App() {
 
         }
       }).then((response)=>response.json())
-      .then((data)=>dispatch(fetching(data))).catch((error)=>dispatch(fetching_error(error)))
+      .then((data)=>dispatch(fetching(data))).catch(error=>dispatch(fetching_error(error)))
     },[page_no]
   )
 
@@ -126,10 +123,8 @@ function App() {
         </div>
 
       </div>
-
-
       <div className='container'>
-        <div className='row g-3 mb-3'>
+        <div className='row gy-4 gx-0 mb-3'>
 
         {data != undefined? data.map((mov,key)=>{
           return (

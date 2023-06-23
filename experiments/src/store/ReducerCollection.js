@@ -11,7 +11,7 @@ const initialState={
 }
 
 
-  const postReducer=(state=initialState,action)=>{
+  const movieReducer=(state=initialState,action)=>{
 
     switch(action.type){
 
@@ -30,7 +30,7 @@ const initialState={
 
     case "Error Fetching":
 
-    return {...state,status:"error"}
+    return {...state,status:action.payload}
 
     case "Set Current Movie":
 

@@ -17,7 +17,7 @@ const fetching=(data)=>{
 
 const fetching_error=(error)=>{
 
-    return {type:"Error fetching",status:error}
+    return {type:"Error Fetching",payload:error}
 }
 
 const changing_page=(number)=>{
