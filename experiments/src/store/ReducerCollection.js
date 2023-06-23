@@ -36,6 +36,10 @@ const initialState={
 
     return {...state,movie:action.payload}
 
+    case "Remove Movie":
+
+    return {...state,movie:{}}
+
     default :
     return initialState
     

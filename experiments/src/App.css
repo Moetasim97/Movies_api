@@ -1,10 +1,12 @@
 
-
+body{
+ background-color: white; 
+}
 
 .App {
   text-align: center;
   background-color: white;
-
+  
 }
 
 .page_title{
@@ -37,4 +39,33 @@
   height: 109px;
   overflow: auto;
   padding: 5px;
+}
+
+
+.modal_background{
+
+  position: fixed;
+  background-color: rgba(255,255,255,0.7);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  
+}
+
+.modal_content{
+
+  margin-left: 300px;
+  margin-top: 100px;
+  background-color: white;
+  height: fit-content;
+  width: 700px;
+
+}
+
+.modal_image{
+
+  width: 270px;
+  height: 402.3px;
 }

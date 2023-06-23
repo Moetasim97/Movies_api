@@ -56,12 +56,13 @@ function App() {
   )
 
 
-console.log(data)
 
   
 
   return (
     <div className="App ">
+      
+      <Modal single_movie={single_mov}/>
       <div className='container'>
         <div className='row mb-4 '>
           <div className='d-flex justify-content-start mx-0 px-0'>
@@ -130,7 +131,6 @@ console.log(data)
         }}>Next</button>
       </div>
 
-      <Modal single_movie={single_mov}/>
     </div>
 
 

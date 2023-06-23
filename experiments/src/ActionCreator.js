@@ -32,4 +32,9 @@ const set_movie=(state)=>{
     return {type:"Set Current Movie",payload:state }
 }
 
+const remove_movie=()=>{
+
+    return {type:"Remove Movie"}
+}
+
 export {fetching_error,fetching,startFetching,changing_page,set_movie}
