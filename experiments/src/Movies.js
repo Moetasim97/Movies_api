@@ -9,8 +9,6 @@ export default function Movie ({movie_state}){
     const dispatch=useDispatch()
 
 
-    
-
 
     return (
 

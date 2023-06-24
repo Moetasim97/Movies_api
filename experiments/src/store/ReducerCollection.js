@@ -48,4 +48,4 @@ const initialState={
 }
 }
 
-export default postReducer
+export default movieReducer

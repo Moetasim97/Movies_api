@@ -19,7 +19,7 @@ function App() {
   const single_mov=useSelector((store)=>store.movieReducer.movie)
 
   const data=useSelector((store)=>store.movieReducer.Movies.results)
-
+  const status= useSelector((store)=>{return store.movieReducer.status})
   const page_no=useSelector((store)=>store.movieReducer.page_number)
 // Here I'm retrieving the data from the store
 
@@ -38,12 +38,12 @@ function App() {
     return [toggleButton,{changeTrue:setTrue,changeFalse:setFalse}]
     
   }
-  console.log(page_no)
+
   useEffect(
     ()=>{
       
       dispatch(startFetching())
-      fetch(`aahttps://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page_no}`,{ 
+      fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page_no}`,{ 
         method: 'GET',
         headers: {
           accept: 'application/json',
@@ -51,9 +51,11 @@ function App() {
 
         }
       }).then((response)=>response.json())
-      .then((data)=>dispatch(fetching(data))).catch(error=>dispatch(fetching_error(error)))
+      .then((data)=>dispatch(fetching(data))).catch(error=>dispatch(fetching_error(error.message)))
     },[page_no]
   )
+
+  // dispatch(fetching_error(error))
 
 // the page number
     meta_data[0]=page_no
@@ -64,7 +66,7 @@ function App() {
 
     var top_rate=0;
 
-
+    
     
 
 //  the top rated movie 
@@ -126,24 +128,26 @@ function App() {
       <div className='container'>
         <div className='row gy-4 gx-0 mb-3'>
 
-        {data != undefined? data.map((mov,key)=>{
+          
+
+        {data != undefined && status !="Failed to Fetch" ? data.map((mov,key)=>{
           return (
             <>
             <Movie movie_state={mov} key={key}/>
             </>
           )
         }):
-        <div>Loading...</div>}
+        <div>{status}</div>}
         </div>
 
       </div>
 
       <div className='d-flex w-100 justify-content-center '>
         <button className='btn_style border' onClick={()=>{
-          dispatch(changing_page(1))
+          dispatch(changing_page(first_page))
         }}>Previous</button>
         <button className='btn_style border' onClick={()=>{
-          dispatch(changing_page(2))
+          dispatch(changing_page(second_page))
         }}>Next</button>
       </div>
 
